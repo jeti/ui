@@ -25,11 +25,43 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    compile 'io.jeti:editables:1.0.1'
+    compile 'io.jeti:components:1.0.0'
+    compile 'io.jeti:layoutparams:1.0.1'
+    compile 'io.jeti:terminal:1.0.1'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+}
+
+ext {
+
+    bintrayRepo = 'io'
+    bintrayName = 'components'
+
+    publishedGroupId = 'io.jeti'
+    libraryName = 'components'
+    artifact = 'components'
+
+    libraryDescription = 'A collection of the jeti.io ui components and utilities'
+
+    siteUrl = 'https://github.com/jeti/components'
+    gitUrl = 'https://github.com/jeti/components.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'jeti'
+    developerName = 'Matthew Holzel'
+    developerEmail = 'matthew.holzel@gmail.com'
+
+    organization = 'jeti'
+
+    licenseName = 'The Apache Software License, Version 2.0'  //Example for license
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 
 }
+
+//These two remote files contain Bintray configuration as described above.
+apply from: 'https://raw.githubusercontent.com/jeti/jcenter/master/install.gradle'
+apply from: 'https://raw.githubusercontent.com/jeti/jcenter/master/bintray.gradle'
+
+
